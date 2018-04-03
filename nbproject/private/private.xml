@@ -3,22 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/onlineshop/GetWholeProduct.java</file>
             <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/AdminHome.jsp</file>
             <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/BuyerHome.jsp</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/ProductEntry.jsp</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/index.jsp</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/registration.jsp</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/SaveProduct.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/ONLINESTYLE.css</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/ProductsList.jsp</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/ReadProductsXML.jsp</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/DeleteProduct.java</file>
             <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/saveuser.java</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/verifyuser.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/index.jsp</file>
             <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/onlineshop/logOut.java</file>
             <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/categories.jsp</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/ProductsList.jsp</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/details.jsp</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/onlineshop/CartManager.java</file>
-            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/displaycart.jsp</file>
             <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/listeners/ConnectionHandler.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/verifyuser.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/onlineshop/GetCategory.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/onlineshop/CartManager.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/details.jsp</file>
             <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/onlineshop/Remove.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/ProductCheck.dtd</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/registration.jsp</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/UpdateProduct.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/displaycart.jsp</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/Products.xml</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/onlineshop/GetProducts.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/PriceCalculator.jsp</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/ReadyForUpdate.java</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/ProductEntry.jsp</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/web/ReadProducts.jsp</file>
+            <file>file:/C:/Users/rohan/Desktop/java%20adv/onlineshopping/src/java/SaveProduct.java</file>
         </group>
     </open-files>
 </project-private>

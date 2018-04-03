@@ -1,0 +1,8 @@
+<!ELEMENT products (product+)>
+<!ELEMENT product (pcode,pname,pdesc,price,category)>
+<!ELEMENT pcode (#PCDATA)>
+<!ELEMENT pname (#PCDATA)>
+<!ELEMENT pdesc (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+

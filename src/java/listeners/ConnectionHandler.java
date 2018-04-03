@@ -19,7 +19,7 @@ public class ConnectionHandler implements ServletContextListener {
          //To change body of generated methods, choose Tools | Templates.
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/onlineshop","root","root");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3307/onlineshop","root","root");
         } catch (Exception ex) {
         
         }

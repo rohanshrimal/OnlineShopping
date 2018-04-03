@@ -7,22 +7,20 @@ package onlineshop;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
-import java.sql.ResultSet.*;
-import static java.sql.ResultSet.CONCUR_UPDATABLE;
-import static java.sql.ResultSet.TYPE_SCROLL_SENSITIVE;
-import javax.servlet.ServletContext;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author rohan
  */
-public class CartManager extends HttpServlet {
+public class GetWholeProduct extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,40 +33,36 @@ public class CartManager extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String pcode=request.getParameter("pcode");
-        String pcat=request.getParameter("pcat");
-        HttpSession session=request.getSession();
-        String id=(String)session.getAttribute("id");
-        
-        try
-        {
-        ServletContext context=getServletContext();
-        Connection con=(Connection)context.getAttribute("datacon");
-        String qr1="select * from cart where pcode=? and loginid=?";
-        PreparedStatement ps1=con.prepareStatement(qr1,TYPE_SCROLL_SENSITIVE,CONCUR_UPDATABLE);
-        ps1.setString(1,pcode);
-        ps1.setString(2,id);
-        ResultSet rs= ps1.executeQuery();
-        if(rs.next()==false)
-        {
-        String qr="insert into cart values(?,?,?)";
-        PreparedStatement ps=con.prepareStatement(qr);
-        ps.setString(1,pcode);
-        ps.setString(2,id);
-        ps.setInt(3, 1);
-        ps.executeUpdate();
-        }
-        else
-        {
-        rs.updateInt(3,rs.getInt(3)+1);
-        rs.updateRow();
-        }
-        response.sendRedirect("BuyerHome.jsp");
-        }
-        catch(Exception w)
-        {
-            PrintWriter out=response.getWriter();
-            out.println(w);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+    String pcode=request.getParameter("pcode");
+    ResultSet rs1=null;
+    int counter1=0;
+    try
+    {
+  Connection con=(Connection)getServletContext().getAttribute("datacon"); 
+  String qr="select * from products where pcode=?";
+  PreparedStatement ps1=con.prepareStatement(qr);
+  ps1.setString(1,pcode);
+  rs1=ps1.executeQuery();
+  ArrayList<String> alpd=new ArrayList<>();
+  
+  while(rs1.next())
+  {
+      alpd.add(rs1.getString(1));
+      alpd.add(rs1.getString(2));
+      alpd.add(rs1.getString(3));
+      alpd.add(rs1.getString(4));
+      alpd.add(rs1.getString(5));
+  }
+  request.getSession().setAttribute("product", alpd);
+  response.getWriter().println(true);
+    }
+    catch(Exception e)
+    {
+        out.print(e);
+    }
+   
         }
     }
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE products SYSTEM "productcheck.dtd">
+<products>
+    <product>
+        <pcode>111</pcode>
+        <pname>Let Us C</pname>
+        <pdesc>Complete Guide For C Programming</pdesc>
+        <price>Rs.300</price>
+        <category>Books</category>
+    </product>
+    <product>
+        <pcode>222</pcode>
+        <pname>Lenovo Laptop</pname>
+        <pdesc>4GB/1TB/Windows</pdesc>
+        <price>Rs.50000</price>
+        <category>Electronics</category>
+    </product>
+    <product>
+        <pcode>333</pcode>
+        <pname>The Coding Interview</pname>
+        <pdesc>Experiences of coding interview.</pdesc>
+        <price>Rs.120</price>
+        <category>Books</category>
+    </product>
+    <product>
+        <pcode>444</pcode>
+        <pname>King Size Bed</pname>
+        <pdesc>6 by 6 Good Quality Wood</pdesc>
+        <price>Rs.20000</price>
+        <category>Furniture</category>
+    </product>
+</products>

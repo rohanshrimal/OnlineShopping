@@ -35,9 +35,41 @@
         <servlet-name>Remove</servlet-name>
         <servlet-class>onlineshop.Remove</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetCategory</servlet-name>
+        <servlet-class>onlineshop.GetCategory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetProducts</servlet-name>
+        <servlet-class>onlineshop.GetProducts</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetWholeProduct</servlet-name>
+        <servlet-class>onlineshop.GetWholeProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReadyForUpdate</servlet-name>
+        <servlet-class>ReadyForUpdate</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>saveuser</servlet-name>
         <url-pattern>/saveuser</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteProduct</servlet-name>
+        <servlet-class>DeleteProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteProduct</servlet-name>
+        <url-pattern>/DeleteProduct</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateProduct</servlet-name>
+        <servlet-class>UpdateProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateProduct</servlet-name>
+        <url-pattern>/UpdateProduct</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VerifyUser</servlet-name>
@@ -62,6 +94,22 @@
     <servlet-mapping>
         <servlet-name>Remove</servlet-name>
         <url-pattern>/Remove</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetCategory</servlet-name>
+        <url-pattern>/GetCategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetProducts</servlet-name>
+        <url-pattern>/GetProducts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetWholeProduct</servlet-name>
+        <url-pattern>/GetWholeProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReadyForUpdate</servlet-name>
+        <url-pattern>/ReadyForUpdate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

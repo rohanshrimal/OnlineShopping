@@ -1,69 +1,58 @@
-
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.io.File;
 import java.io.IOException;
-import java.sql.*;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.w3c.dom.*;
-import javax.xml.parsers.*;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.*;
-import javax.xml.transform.stream.*;  
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class SaveProduct extends HttpServlet {
+/**
+ *
+ * @author rohan
+ */
+@WebServlet(urlPatterns = {"/UpdateProduct"})
+public class UpdateProduct extends HttpServlet {
 
-    Connection con=null;
-    PreparedStatement ps=null;
-    String qr=null;
-   
-    
-    @Override
-    public void init() throws ServletException {
-       try{ 
-        con=(Connection)getServletContext().getAttribute("datacon");
-        qr="insert into products values(?,?,?,?,?)";
-        ps=con.prepareStatement(qr);
-       }
-       catch(Exception e)
-       {
-           
-       }
-//To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void destroy() {
-        try
-        {
-       
-        }
-        catch(Exception e)
-        {
-        }
-        //To change body of generated methods, choose Tools | Templates.
-    }
-  
-    
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SAXException {
-        
-        PrintWriter out=null;
-        out=response.getWriter();
-      
-        String pcode=request.getParameter("pcode");
-        String pname=request.getParameter("pname");
-        String desc=request.getParameter("desc");
-        String price=request.getParameter("price");
-        String category=request.getParameter("category");
-       
-        try{
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            
+            String pcode=request.getParameter("pcode");
+            String pname=request.getParameter("pname");
+            String desc=request.getParameter("desc");
+            String price=request.getParameter("price");
+            String category=request.getParameter("category");
+            
+            try{
                 String xmlFile=getServletContext().getRealPath("Products.xml");
                 DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder docBuilder = builderFactory.newDocumentBuilder();
@@ -77,9 +66,39 @@ public class SaveProduct extends HttpServlet {
                 {
                     doc=docBuilder.parse(xmlFile);
                     Node products = doc.getDocumentElement();
-
+                    
+                    NodeList productList = doc.getElementsByTagName("product");
+                    
+                    int i=0;
+                    boolean flag=false;
+                    for(i=0;i<productList.getLength();i++)
+                    {
+                        Node theProduct=productList.item(i);
+                        NodeList productDetails=theProduct.getChildNodes();
+                        
+                        int j=0;
+                        for(j=0;j<productDetails.getLength();j++)
+                        {
+                            Node detail=productDetails.item(j);
+                            
+                            if(detail.getNodeName().equals("pcode"))
+                            {
+                                if(detail.getTextContent().equals(pcode))
+                                {
+                                    products.removeChild(theProduct);
+                                    flag=true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(flag)
+                        {
+                            break;
+                        }
+                    }
+                    
                     Element product = doc.createElement("product");
-
+                     
                     Element ppcode = doc.createElement("pcode");
                     ppcode.appendChild(doc.createTextNode(pcode));
                     product.appendChild(ppcode);
@@ -101,12 +120,10 @@ public class SaveProduct extends HttpServlet {
                     product.appendChild(pcategory);
                     
                     products.appendChild(product);
-
                     TransformerFactory transformerFactory = TransformerFactory.newInstance();
                     Transformer transformer = transformerFactory.newTransformer();
                     DOMSource source = new DOMSource(doc);
                     StreamResult result = new StreamResult(new File(xmlFile));
-                    System.out.print("----------"+result+"------------------");
                     transformer.transform(source, result);
 
                 }
@@ -119,28 +136,8 @@ public class SaveProduct extends HttpServlet {
 	   }catch (SAXException sae) {
 		sae.printStackTrace();
 	   }
-        
-        try
-        {
-        ps.setString(1,pcode);
-        ps.setString(2,pname);
-        ps.setString(3,desc);
-        ps.setString(4,price);
-        ps.setString(5,category);
-        
-        ps.executeUpdate();
-        
-        out.println("<pre><h1><center>PRODUCT ADDED SUCCESSFULLY</center></h1></pre>");
-        
-        out.println("<hr>");
-        out.println("<pre><a href=\"ProductEntry.jsp\">CLICK HERE TO ADD MORE PRODUCTS</a></pre>");
-        out.println("<pre><a href=\"AdminHome.jsp\">ADMIN HOME</A></pre>");
+          response.sendRedirect("ReadProductsXML.jsp");
         }
-        catch(Exception e)
-        {
-            out.println(e);
-        }
-        out.close();    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -155,11 +152,7 @@ public class SaveProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SAXException ex) {
-            Logger.getLogger(SaveProduct.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -173,11 +166,7 @@ public class SaveProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SAXException ex) {
-            Logger.getLogger(SaveProduct.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

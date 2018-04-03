@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><products>
+    
+    
+    
+    
+<product><pcode>999</pcode><pname>Lenovo</pname><pdesc>8GB/1TB/Win XP</pdesc><price>10000</price><category>APPLIANCES</category></product><product><pcode>1000</pcode><pname>Lenovo Mobile</pname><pdesc>8GB/13 px</pdesc><price>10000</price><category>APPLIANCES</category></product><product><pcode>333</pcode><pname>The Coding Interview by narendra</pname><pdesc>Experiences of coding interview.</pdesc><price>Rs.1200</price><category>Books</category></product></products>

@@ -7,11 +7,10 @@
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <%
     String pcode=request.getParameter("pcode");
     String category=request.getParameter("pcat");
-%>
-<%
     ResultSet rs1=null;
     ResultSetMetaData rdata1=null;
     int counter1=0;

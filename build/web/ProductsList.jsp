@@ -9,10 +9,11 @@
 <!DOCTYPE html>
 
 <%
-    String category=request.getParameter("qs");
+    
 %>
 
 <%
+    String category=request.getParameter("qs");
     ResultSet rs=null;
     int counter=0;
     try
